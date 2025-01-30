@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\On;
 use App\Models\alumno;
 use Livewire\Component;
 
@@ -24,6 +25,7 @@ class ListaAlumnos extends Component
         return view('livewire.lista-alumnos');
     }
 
+    #[On('BajaAlumno')]
     public function cargaLista()
     {
         $this->alumnosList = alumno::all();

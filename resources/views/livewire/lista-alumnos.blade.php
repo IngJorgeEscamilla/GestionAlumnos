@@ -29,16 +29,17 @@
 
     </table>
     <script>
-        document.addEventListener('livewire:init', () => {
-        Livewire.on('BajaAlumno', (event) => {
-           if(event.eliminado)
-           {
-            //$wire.dispacth('recargarlista');
-            #[On('echo:BajaAlumno'cargarLista)]
-            public function cargarLista()
-           }
-           console.log(event);
+        $(document).ready(function()
+        {
+            document.addEventListener('livewire:init', () => {
+            Livewire.on('BajaAlumno', (event) => {
+                if(event.eliminar)
+                {
+                    $wire.dispacth('cargarLista');
+                }
+                console.log(event);
             });
+        });
         });
     </script>
 </div>

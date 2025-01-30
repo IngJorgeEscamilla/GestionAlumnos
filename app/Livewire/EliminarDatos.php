@@ -30,6 +30,7 @@ class EliminarDatos extends Component
         }
     }
 
+    //#[On('BajaAlumno')]
     public function eliminarAlumno()
     {
         $alumno = alumno::find($this->id);
@@ -44,16 +45,16 @@ class EliminarDatos extends Component
         }
     }
 
-    public function eliminarMaestro($id)
+    public function eliminarMaestro()
     {
-        $maestro = maestro::find($id);
+        $maestro = maestro::find($this->id);
         if($maestro != null)
         {
             $eliminado =
             $maestro->delete();
-            $this->dispatch('');
+            $this->dispatch('BajaMaestro', eliminar:$eliminado);
             //return ($eliminado);
-            dd('elimninado');
+            //dd('elimninado');
         }
     }
 

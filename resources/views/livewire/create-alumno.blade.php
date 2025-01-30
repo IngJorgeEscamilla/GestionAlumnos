@@ -12,7 +12,7 @@
     <input type="text" id="semestre" wire:model = "model.semestre"> 
 
     <label for="title">Correo Electrónico:</label>
-    <input type="email" id="title" value="{{ $model['nombre'].$model['matricula'].$correo }}" disabled readonly> 
+    <input type="email" id="title" value="{{ $model['nombre'].$correo }}" disabled readonly> 
 
     <label for="title">Teléfono:</label>
     <input type="text" id="title" wire:model="model.telefono"> 
