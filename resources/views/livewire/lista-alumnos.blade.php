@@ -1,33 +1,39 @@
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
 
-    {{ $Lista }}
-
-    <table class="border-1">
-        <tr class="border-1">
-            <td class="border = 2">N°</td>
-            <td class="border = 2">Nombre</td>
-            <td class="border = 2">Matricula</td>
-            <td class="border = 2">Semestre</td>
-            <td class="border = 2">Correo Electrónico</td>
-            <td class="border = 2">Número Telefónico</td>
-            <td class="border = 2">Opciones</td>
-        </tr>
-        @foreach ($alumnosList as $key => $alumno)
-        <tr>
-            <td>{{$key+1}}</td>
-            <td>{{$alumno->nombre}}</td>
-            <td>{{$alumno->matricula}}</td>
-            <td>{{$alumno->semestre}}</td>
-            <td>{{$alumno->email}}</td>
-            <td>{{$alumno->telefono}}</td>
-            <td>
+    <div class="overflow-x-auto">
+        <table class="table">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+              <th>Matricula</th>
+              <th>Semestre</th>
+              <th>Correo Electrónico</th>
+              <th>Telefóno</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row 1 -->
+            @foreach ($alumnosList as $key => $alumno)
+            <tr class="bg-base-200">
+              <th>{{$key+1}}</th>
+              <td>{{$alumno->nombre}}</td>
+              <td>{{$alumno->matricula}}</td>
+              <td>{{$alumno->semestre}}</td>
+              <td>{{$alumno->email}}</td>
+              <td>{{$alumno->telefono}}</td>
+              <td>
+                <li></li>
                 <li>@livewire('eliminar-datos', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id))</li>
             </td>
-        </tr>                
-        @endforeach
-
-    </table>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+    </div>
     <script>
         $(document).ready(function()
         {
