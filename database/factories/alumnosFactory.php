@@ -1,0 +1,29 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ */
+class alumnosFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            //
+            'nombre' => fake()->nombre(),
+            'matricula' => fake(),
+            'semestre' => fake(),
+            'email' => fake()->unique()->safeEmail(),
+            'telefono' => integer::random(10),
+        ];
+    }
+}
