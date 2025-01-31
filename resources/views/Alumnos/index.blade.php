@@ -1,56 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-</head>
-<body>
-    <header>
-        <h1>Gestion Alumnos</h1>
-    </header>
-    <div>
-        <h2>lista de alumnos</h2>
-
-        @livewireStyles
-        @livewire('lista-alumnos')
-        @livewireScripts
-
-        
-        <!--<table class="border-1">
-            <tr class="border-1">
-                <td class="border = 2">N°</td>
-                <td class="border = 2">Nombre</td>
-                <td class="border = 2">Matricula</td>
-                <td class="border = 2">Semestre</td>
-                <td class="border = 2">Correo Electrónico</td>
-                <td class="border = 2">Número Telefónico</td>
-                <td class="border = 2">Opciones</td>
-            </tr>
-            @foreach ($alumnoslist as $key => $alumno)
-            <tr>
-                <td>{{$key+1}}</td>
-                <td>{{$alumno->nombre}}</td>
-                <td>{{$alumno->matricula}}</td>
-                <td>{{$alumno->semestre}}</td>
-                <td>{{$alumno->email}}</td>
-                <td>{{$alumno->telefono}}</td>
-                <td>
-                    <li><a href="{{ route('alumnos.edit', $alumno->id)}}">Actualizar</a></li>
-                    <form action="{{ route('alumnos.destroy', $alumno->id)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <li><button type="button" wire:click='eliminar({{ $alumno->id }})'>eliminar</button></li>
-                    </form>
-                </td>
-            </tr>                
-            @endforeach
-        </table>-->
-        <div>
-            <a href="{{url('alumnos/create')}}"><button>Nuevo Alumno</button></a>
+<x-app-layout>
+    <x-slot name="header">
+        <div class="navbar bg-base-100">
+            <ul>
+                <li>
+                    <h2><a class="btn btn-ghost text-xl" href="{{ route('alumnos.index') }}">Alumnos</a></h2>
+                </li>
+                <li>
+                    <h2><a class="btn btn-ghost text-xl" href="{{ route('maestros.index') }}">Maestros</a></h2>
+                </li>
+            </ul>
+          </div>
+    </x-slot>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <body>
+                        <header>
+                            
+                        </header>
+                        <div>
+                            <h1>lista de alumnos</h1>
+                            @livewireStyles
+                            @livewire('lista-alumnos')
+                            @livewireScripts
+                            <div>
+                                <a href="{{route('alumnos.create')}}"><button type="button" class="btn">Nuevo Alumno</button></a>
+                            </div>
+                        </div>
+                    </body>
+                </div>
+            </div>
         </div>
     </div>
-</body>
+    
+</x-app-layout>
+
 </html>

@@ -2,8 +2,7 @@
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
 
     <div class="overflow-x-auto">
-        <table class="table">
-          <!-- head -->
+        <table class="table table-zebra">
           <thead>
             <tr>
               <th></th>
@@ -16,7 +15,6 @@
             </tr>
           </thead>
           <tbody>
-            <!-- row 1 -->
             @foreach ($alumnosList as $key => $alumno)
             <tr class="bg-base-200">
               <th>{{$key+1}}</th>
@@ -26,9 +24,8 @@
               <td>{{$alumno->email}}</td>
               <td>{{$alumno->telefono}}</td>
               <td>
-                <li></li>
-                <li>@livewire('eliminar-datos', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id))</li>
-            </td>
+                @livewire('eliminar-datos', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id))
+              </td>
             </tr>
             @endforeach
           </tbody>

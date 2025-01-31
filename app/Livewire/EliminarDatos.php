@@ -13,8 +13,7 @@ class EliminarDatos extends Component
     public $id;
     public $value;
     
-    
-
+    public $role;
 
     public function render()
     {

@@ -6,41 +6,32 @@
     <title>Maestros</title>
 </head>
 <body>
-    <header>
-        <h1>Maestros</h1>
-    </header>
-    
-    <div class="TableroMaestros">
-        <h2>Nuevo Maestro</h2>
-        @livewireStyles
-        @livewire('create-maestro')
-        @livewireScripts
-        <a href="{{ url('/maestros')}}">lista maestros</a>
-        <!-- <form method="POST" action="{{ route('maestros.store')}}" >
-            @csrf   
-            <div>
-                <label for="">Nombre</label>
-                <input type="text" name="nombre" id="nombre">
+    <x-app-layout>
+        <x-slot name="header">
+            <div class="navbar bg-base-100">
+                <ul>
+                    <li>
+                        <h2><a class="btn btn-ghost text-xl" href="{{ route('alumnos.index') }}">Alumnos</a></h2>
+                    </li>
+                    <li>
+                        <h2><a class="btn btn-ghost text-xl" href="{{ route('maestros.index') }}">Maestros</a></h2>
+                    </li>
+                </ul>
             </div>
-                
-            <div>
-                <label for="">Matricula</label>
-                <input type="text" name="matricula" id="matricula">
+        </x-slot>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <div class="TableroMaestros">
+                            @livewireStyles
+                            @livewire('create-maestro')
+                            @livewireScripts
+                        </div>
+                    </div>
+                </div>
             </div>
-                
-            <div>
-                <label for="">Email</label>
-                <input type="email" name="email" id="email">
-            </div>
-                
-            <div>
-                <label for="">Telefóno</label>
-                <input type="text" name="telefono" id="telefono">
-            </div>
-            <div>
-                <button type="submit">Enviar</button>
-            </div>
-        </form> -->
-    </div>
+        </div>
+    </x-app-layout>
 </body>
 </html>

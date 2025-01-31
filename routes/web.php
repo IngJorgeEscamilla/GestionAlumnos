@@ -21,10 +21,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('alumnos',AlumnosController::class);
-Route::resource('maestros',MaestrosController::class);
-Route::resource('materias',MateriasController::class);
-Route::resource('grupos',GruposController::class);
+Route::resource('alumnos',AlumnosController::class)->middleware('auth');
+Route::resource('maestros',MaestrosController::class)->middleware('auth');
+Route::resource('materias',MateriasController::class)->middleware('auth');
+Route::resource('grupos',GruposController::class)->middleware('auth');
 
 
 

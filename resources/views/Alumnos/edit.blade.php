@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <a href="{{ url('/alumnos')}}"><h1>Gestión Alumnos</h1></a>
+        <a href="{{ route('alumnos.index')}}"><h1>Gestión Alumnos</h1></a>
     </header>
     <div class="form">
     <form action="{{ route('alumnos.update', $alumno->id)}}" method="POST">

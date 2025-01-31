@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\alumno;
 
 
+
 class AlumnosController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
