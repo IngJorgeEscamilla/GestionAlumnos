@@ -9,6 +9,8 @@ use Livewire\Component;
 
 class EliminarDatos extends Component
 {
+    
+    public $Salumno;
 
     public $id;
     public $value;
@@ -56,5 +58,22 @@ class EliminarDatos extends Component
             //dd('elimninado');
         }
     }
+    
+    public function cargarAlumno($id)
+    {
+        $alumno = alumno::find($id);
+        if ($alumno != null)
+        {
+            $this->Salumno = ['nombre' =>$alumno->nombre,
+                              'matricula'=>$alumno->matricula,
+                              'semestre'=>$alumno->semestre,
+                              'email'=>$alumno->email,
+                              'telefono'=>$alumno->telefono,];
+        }
+    }
 
+    public function actualizarAlumno()
+    {
+
+    }
 }

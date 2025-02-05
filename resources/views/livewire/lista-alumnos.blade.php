@@ -7,6 +7,7 @@
             <tr>
               <th></th>
               <th>Nombre</th>
+              <th>Apellido</th>
               <th>Matricula</th>
               <th>Semestre</th>
               <th>Correo Electrónico</th>
@@ -19,12 +20,19 @@
             <tr class="bg-base-200">
               <th>{{$key+1}}</th>
               <td>{{$alumno->nombre}}</td>
+              <td>{{$alumno->apellido}}</td>
               <td>{{$alumno->matricula}}</td>
               <td>{{$alumno->semestre}}</td>
               <td>{{$alumno->email}}</td>
               <td>{{$alumno->telefono}}</td>
               <td>
-                @livewire('eliminar-datos', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id))
+                <details class="dropdown">
+                  <summary class="btn m-1">Acciones</summary>
+                  <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    @livewire('eliminar-datos', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id))
+                  </ul>
+                </details>
+                
               </td>
             </tr>
             @endforeach

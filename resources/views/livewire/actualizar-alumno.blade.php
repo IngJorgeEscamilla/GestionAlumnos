@@ -1,5 +1,5 @@
 <div>
-    {{-- Close your eyes. Count to one. That is how long forever feels. --}}
+    {{-- Success is as dangerous as failure. --}}
     <div>
         <label for="title">Nombre:</label>
         <!--<input  type="text" id="title" wire:model.blur="model.nombre"> -->
@@ -44,5 +44,5 @@
     
     <div>
         <button class="btn" type="button" wire:click='guardar'>Enviar</button>
-    </div>   
+    </div>  
 </div>

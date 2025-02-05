@@ -22,7 +22,7 @@ class MaestrosFactory extends Factory
             'nombre' => fake()->nombre(),
             'matricula' => fake(),
             'email' => fake()->unique()->safeEmail(),
-            'telefono' => this->faker->randomNumber(nbDigits:10),
+            'telefono' => $this->faker->randomNumber(nbDigits:10),
         ];
     }
 }

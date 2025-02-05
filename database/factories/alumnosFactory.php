@@ -23,7 +23,7 @@ class alumnosFactory extends Factory
             'matricula' => fake(),
             'semestre' => fake(),
             'email' => fake()->unique()->safeEmail(),
-            'telefono' => integer::random(10),
+            'telefono' => $this->faker->randomNumber(nbDigits:10),
         ];
     }
 }

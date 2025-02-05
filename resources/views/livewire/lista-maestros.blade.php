@@ -7,6 +7,7 @@
             <tr>
               <th></th>
               <th>Nombre</th>
+              <th>Apellido</th>
               <th>Matricula</th>
               <th>Correo Electrónico</th>
               <th>Teléfono</th>
@@ -19,6 +20,7 @@
             <tr class="bg-base-200">
               <th>{{ $key+1 }}</th>
               <td>{{ $maestro ->nombre }}</td>
+              <td>{{ $maestro->apellido }}</td>
               <td>{{ $maestro ->matricula }}</td>
               <td>{{ $maestro ->email }}</td>
               <td>{{ $maestro ->telefono }}</td>
