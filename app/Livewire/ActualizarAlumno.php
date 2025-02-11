@@ -42,8 +42,9 @@ class ActualizarAlumno extends Component
 
 
     public $id;
-    public $getAlumno = [];
+    public $getAlumno;
     public $model = [];
+    public $alumno;
 
     public function render()
     {
@@ -63,15 +64,15 @@ class ActualizarAlumno extends Component
     }
     public function findAlumno()
     {
-        $alumno = alumno::find($this->id);
-        if($alumno != null)
+        $this->alumno = alumno::find($this->id);
+        if($this->alumno != null)
         {
-            $this->getAlumno = ['nombre' =>$alumno->nombre,
-                                'apellido'=>$alumno->apellido,
-                                'matricula'=>$alumno->matricula,
-                                'semestre'=>$alumno->semestre,
-                                'email'=>$alumno->email,
-                                'telefono'=>$alumno->telefono,];
+            $this->getAlumno = ['nombre' =>$this->alumno->nombre,
+                                'apellido'=>$this->alumno->apellido,
+                                'matricula'=>$this->alumno->matricula,
+                                'semestre'=>$this->alumno->semestre,
+                                'email'=>$this->alumno->email,
+                                'telefono'=>$this->alumno->telefono,];
         }
     }
 
@@ -79,37 +80,36 @@ class ActualizarAlumno extends Component
     public function dataUpdate()
     {
         $validation = $this->validate()['model'];
-        $validation = alumno::find($this->id);
-        if ($validation != null)
-        {
-
-
-            $this->getAlumno = ['model.nombre' => $validation->nombre,
-                            'model.apellido' => $validation->apellido,
-                            'model.matricula' =>$validation->matricula,
-                            'model.semestre' =>$validation->semestre,
-                            'model.email' =>$validation->email,    
-                            'model.telefono' =>$validation->telefono,];
-
-                           
-        }
-        $this->getAlumno->save($validation);
         //dd($validation);
+        //$validation = alumno::find($this->id);
+        //if ($validation != null)
+        //{
+        //    $this->getAlumno = ['model.nombre' => $validation->nombre,
+        //                    'model.apellido' => $validation->apellido,
+        //                    'model.matricula' =>$validation->matricula,
+        //                    'model.semestre' =>$validation->semestre,
+        //                    'model.email' =>$validation->email,    
+        //                    'model.telefono' =>$validation->telefono,];
+//
+        //                   
+        //}
+         //$this->getAlumno->update($validation);
+        //dd($validation);
+        //dd(['getAlumno' => $this->getAlumno]);
+        $this->alumno->nombre=($validation['nombre']);
+        $this->alumno->apellido=($validation['apellido']);
+        $this->alumno->matricula=($validation['matricula']);
+        $this->alumno->semestre=($validation['semestre']);
+        $this->alumno->email=($validation['email']);
+        $this->alumno->telefono=($validation['telefono']);
         
-        //$this->getAlumno->nombre=($validation['nombre']);
-        //$this->getAlumno->apellido=($validation['apellido']);
-        //$this->getAlumno->matricula=($validation['matricula']);
-        //$this->getAlumno->semestre=($validation['semestre']);
-        //$this->getAlumno->email=($validation['email']);
-        //$this->getAlumno->telefono=($validation['telefono']);
-
+        $this->alumno->save();
+                
         
-        
-        
-        dd($this->getAlumno);
+        //dd($this->getAlumno);
         
         //$this->vista = false;
-        //session()->flash('correcto','alumno creado correctamente');
-        //return redirect()->to(route("alumnos.index"));
+        session()->flash('correcto','alumno creado correctamente');
+        return redirect()->to(route("alumnos.index"));
     }
 }   
