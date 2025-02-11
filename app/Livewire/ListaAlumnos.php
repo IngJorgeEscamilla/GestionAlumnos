@@ -9,7 +9,10 @@ use Livewire\Component;
 
 class ListaAlumnos extends Component
 {
+    public $id;
     
+    public $openModal = false;
+
     public $Lista ;
 
     public $alumnosList=[];
@@ -30,5 +33,5 @@ class ListaAlumnos extends Component
     {
         $this->alumnosList = alumno::all();
     }
-
+   
 }

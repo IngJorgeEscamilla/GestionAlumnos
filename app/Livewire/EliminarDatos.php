@@ -46,18 +46,7 @@ class EliminarDatos extends Component
         }
     }
 
-    public function eliminarMaestro()
-    {
-        $maestro = maestro::find($this->id);
-        if($maestro != null)
-        {
-            $eliminado =
-            $maestro->delete();
-            $this->dispatch('BajaMaestro', eliminar:$eliminado);
-            //return ($eliminado);
-            //dd('elimninado');
-        }
-    }
+
     
     public function cargarAlumno($id)
     {
@@ -72,8 +61,4 @@ class EliminarDatos extends Component
         }
     }
 
-    public function actualizarAlumno()
-    {
-
-    }
 }

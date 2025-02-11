@@ -5,6 +5,7 @@ use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\MaestrosController;
 use App\Http\Controllers\MateriasController;
 use App\Http\Controllers\GruposController;
+use App\Livewire\ActualizarAlumno;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +26,8 @@ Route::resource('alumnos',AlumnosController::class)->middleware('auth');
 Route::resource('maestros',MaestrosController::class)->middleware('auth');
 Route::resource('materias',MateriasController::class)->middleware('auth');
 Route::resource('grupos',GruposController::class)->middleware('auth');
+
+Route::get('alumno/{alumno}',ActualizarAlumno::class)->middleware('auth');
 
 
 

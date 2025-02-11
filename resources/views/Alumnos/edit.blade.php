@@ -25,7 +25,7 @@
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div class="form">
                             @livewireStyles
-                            @livewire('actualizar-datos')
+                            @livewire('actualizar-alumno', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id) )
                             @livewireScripts
                         </div>
                     </div>

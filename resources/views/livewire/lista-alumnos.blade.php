@@ -1,6 +1,5 @@
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
-
     <div class="overflow-x-auto">
         <table class="table table-zebra">
           <thead>
@@ -26,18 +25,14 @@
               <td>{{$alumno->email}}</td>
               <td>{{$alumno->telefono}}</td>
               <td>
-                <details class="dropdown">
-                  <summary class="btn m-1">Acciones</summary>
-                  <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                    @livewire('eliminar-datos', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id))
-                  </ul>
-                </details>
-                
+                <button class="btn"><a href="{{ route('alumnos.edit',$alumno->id) }}">Editar</a></button>
+                @livewire('eliminar-datos', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id))
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
+        
     </div>
     <script>
         $(document).ready(function()

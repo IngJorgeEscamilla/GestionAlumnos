@@ -87,6 +87,7 @@ public $vista = false;
         
         //dd($this->model);
         $this->vista = false;
+        //session()->flash('correcto','alumno creado correctamente');
         return redirect()->to(route("alumnos.index"));
     }
 
@@ -96,6 +97,7 @@ public $vista = false;
         if($alumno != null)
         {
             $this->model = ['nombre' =>$alumno->nombre,
+                            'apellido' => $alumno->apellido,   
                             'matricula'=>$alumno->matricula,
                             'semestre'=>$alumno->semestre,
                             'email'=>$alumno->email,

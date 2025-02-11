@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\On;
 use App\Models\maestro;
 use Livewire\Component;
 
@@ -14,7 +15,7 @@ class ListaMaestros extends Component
         $this->cargarLista();
         return view('livewire.lista-maestros');
     }
-
+    #[On('BajaMaestro')]
     public function cargarLista()
     {
         $this->maestrosLista = maestro::all();
