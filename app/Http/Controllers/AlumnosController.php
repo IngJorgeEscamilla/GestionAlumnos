@@ -40,7 +40,7 @@ class AlumnosController extends Controller
         //
         $nuevoAlumno = $request->validated();
         alumno::create($nuevoAlumno);
-        return redirect('alumnos/create');
+        return redirect('Alumnos/create');
     }
 
     /**
@@ -49,6 +49,8 @@ class AlumnosController extends Controller
     public function show(string $id)
     {
         //
+        $alumno = alumno::find($id);
+        return view('Alumnos/show', compact('alumno'));
     }
 
     /**

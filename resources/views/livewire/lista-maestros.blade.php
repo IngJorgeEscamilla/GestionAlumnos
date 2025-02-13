@@ -24,7 +24,11 @@
               <td>{{ $maestro ->matricula }}</td>
               <td>{{ $maestro ->email }}</td>
               <td>{{ $maestro ->telefono }}</td>
-              <td>@livewire('eliminar-maestro', ['tipo' => 'maestro','id'=>$maestro->id], key($maestro->id))</td>
+              <td class="grid grid-cols-3">
+                <button class="btn"><a href="{{ route('maestros.show',$maestro->id) }}">Ver</a></button>
+                <button class="btn"><a href="{{ route('maestros.edit',$maestro->id) }}">Editar</a></button>
+                @livewire('eliminar-maestro', ['tipo' => 'maestro','id'=>$maestro->id], key($maestro->id))
+              </td>
             </tr>
             @endforeach
           </tbody>

@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maestros</title>
+    <title>actualizar de maestros</title>
 </head>
 <body>
-    <header>
-        <h1>Maestros</h1>
-    </header>
-    <div class="TableroMaestros">
-        <h2>Nuevo Maestro</h2>
-        <form action="">
-            @csrf
-                <!--Campo nombre del maestro-->
-            <div>
-                <label for=""></label>
-                <input type="text" name="nombre" id="nombre">
+    <x-app-layout>
+        <x-slot name="header">
+            <div class="navbar bg-base-100">
+                <ul>
+                    <li>
+                        <h2><a class="btn btn-ghost text-xl" href="{{ route('alumnos.index') }}">Alumnos</a></h2>
+                    </li>
+                    <li>
+                        <h2><a class="btn btn-ghost text-xl" href="{{ route('maestros.index') }}">Maestros</a></h2>
+                    </li>
+                </ul>
+              </div>
+        </x-slot>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <div>
+                           @livewireScripts
+                            @livewire('actualizar-maestros', ['tipo' => 'maestro','id' => $maestro->id], key($maestro->id))
+                           @livewireScripts
+                        </div>
+                    </div>
+                </div>
             </div>
-                <!--Campo matricula del maestro-->
-            <div>
-                <label for=""></label>
-                <input type="text" name="matricula" id="matricula">
-            </div>
-                <!--Campo email del maestro-->
-            <div>
-                <label for=""></label>
-                <input type="text" name="email" id="email">
-            </div>
-                <!--Campo telefono del maestro-->
-            <div>
-                <label for=""></label>
-                <input type="text" name="telefono" id="telefono">
-            </div>
-        </form>
-    </div>
+        </div>
+    </x-app-layout>
 </body>
 </html>

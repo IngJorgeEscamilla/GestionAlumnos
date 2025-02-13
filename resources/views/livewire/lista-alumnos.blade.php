@@ -24,8 +24,9 @@
               <td>{{$alumno->semestre}}</td>
               <td>{{$alumno->email}}</td>
               <td>{{$alumno->telefono}}</td>
-              <td>
-                <button class="btn"><a href="{{ route('alumnos.edit',$alumno->id) }}">Editar</a></button>
+              <td class="grid grid-cols-3">
+                <button class="btn btn-info"><a href="{{ route('alumnos.show',$alumno->id) }}">Ver</a></button>
+                <button class="btn btn-neutral"><a href="{{ route('alumnos.edit',$alumno->id) }}">Editar</a></button>
                 @livewire('eliminar-datos', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id))
               </td>
             </tr>

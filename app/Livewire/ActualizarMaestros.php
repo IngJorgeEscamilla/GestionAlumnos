@@ -2,18 +2,17 @@
 
 namespace App\Livewire;
 
-use App\Models\alumno;
+use App\Models\maestro;
 use Livewire\Component;
 
-class ActualizarAlumno extends Component
-{   
-
+class ActualizarMaestros extends Component
+{
+    
     protected function rules()
     {
         return  [
             'model.nombre' => 'required|min:2|max:20',
             'model.apellido'=>'required|min:2|max:20',
-            'model.semestre'=>'required',
             'model.matricula'=>'required|min:8|max:8',
             'model.email'=>'required|email',
             'model.telefono'=>'required|min:10|max:10',
@@ -28,7 +27,6 @@ class ActualizarAlumno extends Component
             'model.apellido.required' => 'El campo apellido se encuentra vacio',
             'model.apellido.min' =>'La longitud del campo debe ser minima de 2 caracteres',
             'model.apellido.max' =>'La longitud del campo debe ser maxima de 20 caraceteres',
-            'model.semestre.required'=>'El campo semestre se encuentra vacio',
             'model.matricula.required' => 'El campo matricula se encuentra vacio',
             'model.matricula.min' => 'La longitud del campo debe ser minima de 8 caracteres',
             'model.matricula.max' => 'La longitud del campo debe ser maxima de 8 caracteres',
@@ -40,59 +38,51 @@ class ActualizarAlumno extends Component
         ];
     }
 
-
+    public $maestro;
+    public $model=[];
+    public $getMaestro;
     public $id;
-    public $getAlumno;
-    public $model = [];
-    public $alumno;
+
 
     public function render()
     {
-        //$alumno = alumno::find($id);
-        //dd($this->model);
-       
-        return view('livewire.actualizar-alumno');
-       
-       
+
+        return view('livewire.actualizar-maestros');
     }
-    
+
     public function mount()
     {
-        $this->findAlumno();
-        $this->model = $this->getAlumno;
-        //sdd($this->model);
+        $this->findMaestro();
+        $this->model = $this->getMaestro;
     }
-    public function findAlumno()
+
+    public function findMaestro()
     {
-        $this->alumno = alumno::find($this->id);
-        if($this->alumno != null)
+        $this->maestro = maestro::find($this->id);
+        if($this->maestro != null)
         {
-            $this->getAlumno = ['nombre' =>$this->alumno->nombre,
-                                'apellido'=>$this->alumno->apellido,
-                                'matricula'=>$this->alumno->matricula,
-                                'semestre'=>$this->alumno->semestre,
-                                'email'=>$this->alumno->email,
-                                'telefono'=>$this->alumno->telefono,];
+            $this->getMaestro = ['nombre' => $this->maestro->nombre,
+                                'apellido'=> $this->maestro->apellido,
+                                'matricula'=> $this->maestro->matricula,
+                                'email'=> $this->maestro->email,
+                                'telefono' => $this->maestro->telefono,
+            ];
         }
     }
 
-
-    public function dataUpdate()
+    public function maestroUpdate()
     {
         $validation = $this->validate()['model'];
-       
-        $this->alumno->nombre=($validation['nombre']);
-        $this->alumno->apellido=($validation['apellido']);
-        $this->alumno->matricula=($validation['matricula']);
-        $this->alumno->semestre=($validation['semestre']);
-        $this->alumno->email=($validation['email']);
-        $this->alumno->telefono=($validation['telefono']);
+
+        $this->maestro->nombre=($validation['nombre']);
+        $this->maestro->apellido=($validation['apellido']);
+        $this->maestro->matricula=($validation['matricula']);
+        $this->maestro->email=($validation['email']);
+        $this->maestro->telefono=($validation['telefono']);
         
-        $this->alumno->save();
-            
-        //dd($this->getAlumno);
-        
-        session()->flash('correcto','alumno creado correctamente');
-        return redirect()->to(route("alumnos.index"));
+        $this->maestro->save();
+        //dd($this->maestro);
+
+        return redirect()->to(route("maestros.index"));
     }
-}   
+}

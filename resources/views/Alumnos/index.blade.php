@@ -20,12 +20,12 @@
                             
                         </header>
                         <div>
-                            <h1>lista de alumnos</h1>
+                            <h1 class=" text-2xl">Lista Alumnos</h1>
                             @livewireStyles
                             @livewire('lista-alumnos')
                             @livewireScripts
                             <div>
-                                <a href="{{route('alumnos.create')}}"><button type="button" class="btn">Nuevo Alumno</button></a>
+                                <a href="{{route('alumnos.create')}}"><button type="button" class="btn btn-primary my-3">Nuevo Alumno</button></a>
                             </div>
                         </div>
                     </body>

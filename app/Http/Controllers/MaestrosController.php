@@ -37,15 +37,18 @@ class MaestrosController extends Controller
         //
         $nuevoMaestro = $request->validated();
         maestro::create($nuevoMaestro);
-        return redirect('Maestro/create');
+        return redirect('Maestros/create');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(maestro $maestro)
+    public function show(string $id)
     {
         //
+        $maestro = maestro::find($id);
+        return view('Maestros/show', compact('maestro'));
+
     }
 
     /**
@@ -54,6 +57,7 @@ class MaestrosController extends Controller
     public function edit(maestro $maestro)
     {
         //
+        return view('Maestros/edit', compact('maestro'));
     }
 
     /**
