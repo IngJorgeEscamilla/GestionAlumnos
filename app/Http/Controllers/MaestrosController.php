@@ -14,9 +14,9 @@ class MaestrosController extends Controller
     public function index()
     {
         //
-        $view = "index";
-        $maestrosList = maestro::all();
-        return view('Maestros.index', compact('maestrosList','view'));
+        //$view = "index";
+        //$maestrosList = maestro::all();
+        return view('Maestros.index');
     }
 
     /**
@@ -35,9 +35,9 @@ class MaestrosController extends Controller
     public function store(StoreMaestroRequest $request)
     {
         //
-        $nuevoMaestro = $request->validated();
-        maestro::create($nuevoMaestro);
-        return redirect('Maestros/create');
+        //$nuevoMaestro = $request->validated();
+        //maestro::create($nuevoMaestro);
+        //return redirect('Maestros.create');
     }
 
     /**
@@ -47,7 +47,7 @@ class MaestrosController extends Controller
     {
         //
         $maestro = maestro::find($id);
-        return view('Maestros/show', compact('maestro'));
+        return view('Maestros.show', compact('maestro'));
 
     }
 
@@ -56,7 +56,7 @@ class MaestrosController extends Controller
      */
     public function edit(maestro $maestro)
     {
-        //
+     
         return view('Maestros/edit', compact('maestro'));
     }
 

@@ -27,7 +27,6 @@ Route::resource('maestros',MaestrosController::class)->middleware('auth');
 Route::resource('materias',MateriasController::class)->middleware('auth');
 Route::resource('grupos',GruposController::class)->middleware('auth');
 
-Route::get('alumno/{alumno}',ActualizarAlumno::class)->middleware('auth');
 
 
 

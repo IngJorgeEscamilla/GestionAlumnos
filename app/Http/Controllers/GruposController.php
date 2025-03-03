@@ -13,6 +13,9 @@ class GruposController extends Controller
     public function index()
     {
         //
+        $grupos = grupo::all();
+        return view('Grupos/index');
+
     }
 
     /**
@@ -21,6 +24,8 @@ class GruposController extends Controller
     public function create()
     {
         //
+
+        return view('Grupos/create');
     }
 
     /**
@@ -34,9 +39,11 @@ class GruposController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(grupo $grupo)
+    public function show(string $id)
     {
         //
+        $grupos = grupo::find($id);
+        return view('Grupos.Show', compact('grupo'));
     }
 
     /**
@@ -45,6 +52,8 @@ class GruposController extends Controller
     public function edit(grupo $grupo)
     {
         //
+        //$grupo = grupo::find($id);
+        return view('Grupos.edit');
     }
 
     /**

@@ -16,6 +16,9 @@
                     <li>
                         <h2><a class="btn btn-ghost text-xl" href="{{ route('maestros.index') }}">Maestros</a></h2>
                     </li>
+                    <li>
+                        <h2><a class="btn btn-ghost text-xl" href="{{ route('materias.index') }}">Materias</a></h2>
+                    </li>
                 </ul>
               </div>
         </x-slot>
@@ -25,7 +28,7 @@
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div>
                             @livewireStyles
-                            @livewire('ver-maestro', ['tipo' => 'maestro','id' => $maestro->id], key($maestro->id))
+                            @livewire('maestros.show-maestro', ['maestro' => 'maestro','id' => $maestro->id], key($maestro->id))
                             @livewireScripts
                         </div>
                     </div>

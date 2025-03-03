@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 
 /**
@@ -19,7 +20,7 @@ class alumnosFactory extends Factory
     {
         return [
             //
-            'nombre' => fake()->nombre(),
+            'nombre' => fake(),
             'matricula' => fake(),
             'semestre' => fake(),
             'email' => fake()->unique()->safeEmail(),

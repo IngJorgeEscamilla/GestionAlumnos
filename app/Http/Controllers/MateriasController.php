@@ -13,6 +13,9 @@ class MateriasController extends Controller
     public function index()
     {
         //
+        $view = "index";
+
+        return view('Materias.index');
     }
 
     /**
@@ -20,8 +23,10 @@ class MateriasController extends Controller
      */
     public function create()
     {
-        //
+            //
+        return view('Materias.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,9 +39,11 @@ class MateriasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(materia $materia)
+    public function show(string $id)
     {
         //
+        $materia = materia::find($id);
+        return view('Materias/show',compact('materia'));
     }
 
     /**
@@ -45,6 +52,7 @@ class MateriasController extends Controller
     public function edit(materia $materia)
     {
         //
+        return view('Materias/edit',compact('materia'));
     }
 
     /**

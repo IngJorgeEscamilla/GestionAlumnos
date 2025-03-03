@@ -16,16 +16,19 @@
                     <li>
                         <h2><a class="btn btn-ghost text-xl" href="{{ route('maestros.index') }}">Maestros</a></h2>
                     </li>
+                    <li>
+                        <h2><a class="btn btn-ghost text-xl" href="{{ route('materias.index') }}">Materias</a></h2>
+                    </li>
                 </ul>
               </div>
         </x-slot>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div class="grid grid-cols-3 p-6 text-gray-900 dark:text-gray-100">
                         <div class="form">
                             @livewireStyles
-                            @livewire('actualizar-alumno', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id) )
+                            @livewire('alumnos.edit-alumno', ['tipo' => 'alumno','id'=>$alumno->id], key($alumno->id) )
                             @livewireScripts
                         </div>
                     </div>

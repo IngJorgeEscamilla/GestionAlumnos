@@ -8,6 +8,9 @@
                 <li>
                     <h2><a class="btn btn-ghost text-xl" href="{{ route('maestros.index') }}">Maestros</a></h2>
                 </li>
+                <li>
+                    <h2><a class="btn btn-ghost text-xl" href="{{ route('materias.index') }}">Materias</a></h2>
+                </li>
             </ul>
           </div>
     </x-slot>
@@ -22,7 +25,7 @@
                         <div>
                             <h1 class=" text-2xl">Lista Alumnos</h1>
                             @livewireStyles
-                            @livewire('lista-alumnos')
+                            @livewire('alumnos.index-alumno')
                             @livewireScripts
                             <div>
                                 <a href="{{route('alumnos.create')}}"><button type="button" class="btn btn-primary my-3">Nuevo Alumno</button></a>
@@ -33,7 +36,4 @@
             </div>
         </div>
     </div>
-    
 </x-app-layout>
-
-</html>

@@ -8,6 +8,9 @@
                 <li>
                     <h2><a class="btn btn-ghost text-xl" href="{{ route('maestros.index') }}">Maestros</a></h2>
                 </li>
+                <li>
+                    <h2><a class="btn btn-ghost text-xl" href="{{ route('materias.index') }}">Materias</a></h2>
+                </li>
             </ul>
           </div>
     </x-slot>

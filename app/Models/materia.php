@@ -2,15 +2,26 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+use function Laravel\Prompts\select;
 
 class materia extends Model
 {
     //
-    protected $table = "materias"
+    use SoftDeletes;
+    
+    protected $table = "materias";
+
     protected $fillable = [
         'nomMateria',
         'clave',
         'horas',
     ];
+    public function alumnos()
+    {
+        return $this->HasMany(alumno::class);
+    }
 }
