@@ -21,7 +21,7 @@ class IndexAlumno extends Component
     public function deleteAlumno(alumno $alumno)
     {
         $alumno->delete();
-        //return redirect()->to(route("alumnos.index"));
+        //return redirect()->to(route("alumnos.index"))
     }
 
     #[On('BajaAlumno')]

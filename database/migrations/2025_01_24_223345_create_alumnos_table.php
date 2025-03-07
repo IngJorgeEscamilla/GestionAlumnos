@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('telefono')->unique();
             
 
-            $table->unsignedBigInteger('grupo_id')->nullable();
+            $table->unsignedBigInteger('grupo_id')->nullable()
+            ->constrained();
             $table->foreign('grupo_id')->references('id')->on('grupos');
             
 

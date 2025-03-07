@@ -7,22 +7,26 @@ use Livewire\Component;
 
 class IndexGrupo extends Component
 {
-    public $grupo;
-    public $model=[];
-
+    public $Listgrupo=[];
     
     public function render()
     {
+        $this->listGruop();
         return view('livewire.grupos.index-grupo');
     }
 
     public function mount()
     {
-        $this->listGruop();
+        
     }
 
     public function listGruop()
     {
-        $this->grupo = grupo::all();
+        $this->Listgrupo = grupo::all();
+    }
+
+    public function deleteGrupo(grupo $grupo)
+    {
+        $grupo->delete();
     }
 }

@@ -42,10 +42,21 @@
     
     <div>
         <label for="title">Teléfono:</label>
-        <input type="tel"  placeholder="Número teléfonico" class="input w-full max-w-s" wire:model.="model.telefono"/>     
+        <input type="tel"  placeholder="Número teléfonico" class="input w-full max-w-s" wire:model="model.telefono"/>     
         <div class="text-red-600">
             {{ $errors->first('model.telefono'); }}
         </div>
+    </div>
+
+    <div>
+        <select class="select my-4" wire:model="model.grupo_id">
+            <option value="" disabled>seleciona una opción</option>
+
+            @foreach ($listGrupos as $key => $grupo )
+                
+                <option value="{{ $grupo->id }}">{{ $grupo->nomGrupo }}</option>
+            @endforeach
+        </select>
     </div>
     
     <div>

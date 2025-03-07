@@ -4,10 +4,12 @@ namespace App\Livewire\Alumnos;
 
 use Livewire\Component;
 use App\Models\alumno;
+use App\Models\grupo;
 
 class Createalumno extends Component
 {
     public $alumno;
+    public $listGrupos=[];
 
     public $model=[];
 
@@ -20,6 +22,7 @@ protected function rules()
         'model.matricula'=>'required|min:8|max:8',
         'model.email'=>'required|email',
         'model.telefono'=>'required|min:10|max:10',
+        'model.grupo_id'=>'nullable'
         ];
 }
 public function messages()
@@ -52,8 +55,13 @@ public $vista = false;
 
     public function render()
     {
-        $this->cargaForm();
         return view('livewire.alumnos.createalumno');
+    }
+
+    public function mount()
+    {
+        $this->cargaForm();
+        $this->listGrupos = grupo::all();
     }
 
     public function recargar(){
@@ -65,7 +73,7 @@ public $vista = false;
     {
         if(!$this->vista){
             $this->alumno = new alumno();
-            $this->model = ['nombre'=>'','apellido'=>'','matricula'=>'','semestre'=>'','email'=>'','telefono'=>'',];
+            $this->model = ['nombre'=>'','apellido'=>'','matricula'=>'','semestre'=>'','email'=>'','telefono'=>'','grupo_id'=>''];
             $this->vista = true;
         }
     }
@@ -73,17 +81,33 @@ public $vista = false;
 
     public function guardar()
     {
-       // $this->model['email'] = $this->model['nombre'].'.'.$this->model['matricula'].$this->correo;
+        if(strlen($this->model['grupo_id'])<1){
+            $this->model['grupo_id'] = "";
+           
+        }
+       //Se creo una variable dentro de la funcion y se asigno el la funcion validate pasando la variable model
         $validation = $this->validate()['model'];
-            
+        //dd([$this->model,$validation]);
+        
+
+        //La variable alumno fue asignada una nueva instacia del modelo alumno
         $this->alumno = new alumno();
+
+        //A la variable alumno se le pasaron los parametros del formulario que se encontraban guardado dentro de la variable vaidation
         $this->alumno->nombre=($validation['nombre']);
         $this->alumno->apellido=($validation['apellido']);
         $this->alumno->matricula=($validation['matricula']);
         $this->alumno->semestre=($validation['semestre']);
         $this->alumno->email=($validation['email']);
         $this->alumno->telefono=($validation['telefono']);
+       
+        $this->alumno->grupo_id=($validation['grupo_id']);
+        
+       
+
+        //El arreglo model se le paso la variable alumno con la funcion save, para guardar los parametros en la base de datos
         $this->model = $this->alumno->save();
+        
         
         //dd($this->model);
         $this->vista = false;

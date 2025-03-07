@@ -1,7 +1,7 @@
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
     <div class="overflow-x-auto">
-        <table class="table table-zebra">
+        <table class="table">
           <!-- head -->
           <thead>
             <tr>
@@ -13,7 +13,7 @@
               <th>Opciones</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="bg-base-200">
             @foreach ($materias as $key => $materia)
             <tr>
               <th>{{ $key+1 }}</th>

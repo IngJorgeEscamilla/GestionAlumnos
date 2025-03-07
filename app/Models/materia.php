@@ -20,6 +20,8 @@ class materia extends Model
         'clave',
         'horas',
     ];
+
+    //Relacion muchos a muchos con el modelo alumno
     public function alumnos()
     {
         return $this->HasMany(alumno::class);

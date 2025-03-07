@@ -18,8 +18,7 @@ class AlumnosController extends Controller
     {
         //
         $view = 'index';
-        $alumnoslist = alumno::all();
-        return view('Alumnos.index',compact('alumnoslist','view'));
+        return view('Alumnos.index');
     }
 
     /**

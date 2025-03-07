@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class alumno extends Model
 {
@@ -28,9 +29,10 @@ class alumno extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function grupo()
+    //Relacion muchos a uno con el modelo grupo
+    public function grupo(): HasOne
     {
-        return $this->belongsTo('App\Models\alumno');
+        return $this->hasOne(grupo::class, 'id', 'grupo_id');
     }
     
 }

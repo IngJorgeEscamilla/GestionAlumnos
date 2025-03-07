@@ -42,7 +42,7 @@ class GruposController extends Controller
     public function show(string $id)
     {
         //
-        $grupos = grupo::find($id);
+        $grupo = grupo::find($id);
         return view('Grupos.Show', compact('grupo'));
     }
 

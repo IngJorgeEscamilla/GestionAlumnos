@@ -16,10 +16,10 @@ class grupo extends Model
     protected $fillable = [
         'nomGrup',
     ];
-
-    public function alumno()
+    //Relacion muchos a uno con el modelo alumno
+    public function alumnos(): HasMany
     {
-        return $this->hasMany('App\Models\alumno');
+        return $this->hasMany(alumno::class, 'grupo_id','id');
     }
 
 }

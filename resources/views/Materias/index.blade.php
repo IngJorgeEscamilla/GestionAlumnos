@@ -19,6 +19,9 @@
                     <li>
                         <h2><a class="btn btn-ghost text-xl" href="{{ route('materias.index') }}">Materias</a></h2>
                     </li>
+                    <li>
+                        <h2><a class="btn btn-ghost text-xl" href="{{ route('grupos.index') }}">Grupos</a></h2>
+                    </li>
                 </ul>
               </div>
         </x-slot>
